@@ -12,15 +12,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     command = sys.argv[1] 
-    if command == 'test_noiser':
-        dataloader = get_dataloader()
-        x, y = next(iter(dataloader))
-        amount = torch.linspace(0, 1, x.shape[0])
-        noiser = Noiser()
-        output = noiser(x, amount)
-        save_image(output, 'out.png')
 
-    elif command == 'train':
+    if command == 'train':
         parser.add_argument('-e', '--epochs', type=int, default=10)
         args, lf_args = parser.parse_known_args()
 
